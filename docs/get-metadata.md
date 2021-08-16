@@ -1,4 +1,4 @@
-# Get Document Metadata
+# Get Data about Document
 
 ## Get Document Attributes
 
