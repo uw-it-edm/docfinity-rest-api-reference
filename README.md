@@ -9,3 +9,4 @@ Table of contents
    1. [Get Data about Documents](/docs/get-metadata.md)
    1. [Get and Replace Document File](/docs/get-and-replace-file.md)
    1. [Search for Documents](/docs/search.md)
+   1. [Create Documents with Large Files](/docs/create-large-documents.md)

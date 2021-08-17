@@ -6,6 +6,7 @@ EDM team has developed two custom end-points to create and update documents that
 
 - `https://{host}/docfinity/webservices/rest/document/edm/create`. End-point that combines the process of uploading a file and indexing it with the given metadata.
 - `https://{host}/docfinity/webservices/rest/document/edm/update`. End-point that partially updates the metadata of given document.
+- `https://{host}/docfinity/webservices/rest/document/edm/commit`. Alternate end-point to index a new document, intended for large files where client uploads the document separately.
 
 Source code of custom end-points: [Document-API](https://github.com/uw-it-edm/document-api).
 
@@ -76,6 +77,10 @@ Sample Response:
   ]
 }
 ```
+
+## Create Document with Large File
+
+For large file uploads (upper limit TBD) see guide [Create Documents with Large Files](/docs/create-large-documents.md)
 
 ## Update Metadata of a Document
 
