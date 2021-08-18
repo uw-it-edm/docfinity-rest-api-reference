@@ -19,7 +19,3 @@ The acess certificate will be tied to an account in DocFinity with appropriate s
 For auditing and tracking purposes, all request must include an `x-audituser` header set to a valid NetID. 
 
 **Please note** that the requests are not made on-behalf of the audit user, they are made with the security access defined by the DocFinity account associated with the certificate, but the audit user will be logged in the operations audit tables of DocFinity and is meant for tracking information only.
-
-## Preview Dev Access
-
-For testing and proof of concept the REST API can be used without a certificate by passing an API KEY in the `x-api-key` header. Consult with EDM team to get a temporary API KEY to use.

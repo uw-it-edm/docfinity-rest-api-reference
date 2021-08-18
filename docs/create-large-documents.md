@@ -29,9 +29,7 @@ The document id string is returned in the response body. Use this id for the nex
 
 End-point that indexes and commits a previously uploaded document.
 
-`POST https://{host}/docfinity/webservices/rest/document/edm/commit`
-
-*`POST /documents/commit` (Preview URL)*
+`POST https://{host}/documents/commit`
 
 Sample Request:
 
