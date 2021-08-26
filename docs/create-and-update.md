@@ -88,9 +88,13 @@ End-point that partially updates the metadata of given document.
 
 Sample Request:
 
+*Dev Preview* Note that the category and documentType are required in beta. Release version will allow to omit the document type and category.
+
 ```json
 {
   "id": "00000001fcpd3gb784gsfk7rftg9d5bq",
+  "category": "My Category",
+  "documentType": "My Document Type",
   "metadata": [{
     "name": "My Field",
     "values": ["New Value"]
