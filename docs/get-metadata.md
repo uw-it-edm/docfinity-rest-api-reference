@@ -4,8 +4,6 @@
 
 `GET https://{host}/docfinity/webservices/rest/document/{documentId}`
 
-*`GET /documents/{documentId}` (Preview URL)*
-
 Sample Response:
 
 ```json
@@ -49,8 +47,6 @@ Sample Response:
 ## Get Document Metadata
 
 `GET https://{host}/docfinity/webservices/rest/document/details?documentId={documentId}`
-
-*`GET /documents/{documentId}/metadata` (Preview URL)*
 
 Sample Response:
 
