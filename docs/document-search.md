@@ -7,12 +7,20 @@ In DocFinity searches are configured by an administrator (also called `Template 
 1. What fields to sort the resuls by.
 
 In order to execute a search via REST API, client must first gather the DocFinity identifier for the template search in order to populate a search request.
+> **_NOTE:_** For brevity, all sample requests on this page excluded setting the authentication options.
+> Please see [Getting Started](/docs/getting-started.md) for help on setting it.
 
 ## Get Search Template ID
 
 End-point that returns all searches that client has access to. From the response locate the id of the search to execute. Note that client can store this id as it will not change after the search template has been created by admin.
 
 `GET https://{host}/docfinity/webservices/rest/search/getSearches`
+
+Sample Request:
+```bash
+curl --location --request GET 'https://{host}/docfinity/webservices/rest/search/getSearches' \
+--header 'x-audituser: mynetid'
+```
 
 Sample Response:
 
@@ -35,7 +43,7 @@ Sample Response:
 
 ## Execute Search
 
-End-point that executes a template search with the given prompt values. For a full
+End-point that executes a template search with the given prompt values.
 
 `POST https://{host}/docfinity/webservices/rest/document/search/template/execute`
 
@@ -43,9 +51,12 @@ Sample Request:
 
 Note that the prompt names are the same as displayed in the search UI.
 
-```json
-{
-  "searchId": "00000001fce4mzy01b3gtm3kqzq54tqt",
+```bash
+curl --location --request POST 'https://{host}/docfinity/webservices/rest/document/search/template/execute' \
+--header 'x-audituser: mynetid' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "searchId": "00000001f8bgj6vs6zb7tg3vqaawqpay",
   "startIndex": 0,
   "maxNum": 50,
   "criteria": [
@@ -56,7 +67,7 @@ Note that the prompt names are the same as displayed in the search UI.
   ],
   "treeFilters": [],
   "searchSortOrders": []
-}
+}'
 ```
 
 Sample Response:
@@ -148,9 +159,15 @@ Note that each document entry has its main attribute information as well as the 
 
 ## (Optional) Get Search Template Prompts
 
-End-point that returns all configured prompts for a search template. This is available to inspect the configuration for all prompts for a search.
+End-point that returns all configured prompts for a given search template. This is available to inspect the configuration of all prompts for a search.
 
 `GET https://{host}/docfinity/webservices/rest/document/search/prompts/{searchId}/EXECUTION`
+
+Sample Request:
+```bash
+curl --location --request GET 'https://{host}/docfinity/webservices/rest/document/search/prompts/00000001f8bgj6vs6zb7tg3vqaawqpay/EXECUTION' \
+--header 'x-audituser: mynetid' 
+```
 
 Sample Response:
 

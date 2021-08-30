@@ -2,10 +2,10 @@
 
 ## Custom EDM End-Points
 
-EDM team has developed two custom end-points to create and update documents that work around several deficiencies in the core DocFinity API's. *Note: url paths may change.*
+To work around the limitations of DocFinity's core API, EDM team has developed custom end-points to create and update documents. *Note: url paths may change.*
 
 - `https://{host}/documents/create`. End-point that combines the process of uploading a file and indexing it with the given metadata.
-- `https://{host}/documents/update`. End-point that partially updates the metadata of given document.
+- `https://{host}/documents/update`. End-point that updates the metadata values of a given document with the given updated values.
 - `https://{host}/documents/commit`. Alternate end-point to index a new document, intended for large files where client uploads the document separately.
 
 Source code of custom end-points: [Document-API](https://github.com/uw-it-edm/document-api).
@@ -26,6 +26,9 @@ Model used by request and responses `/create` and `/update` end-points:
 }
 ```
 
+> **_NOTE:_** For brevity, all sample requests on this page excluded setting the authentication options.
+> Please see [Getting Started](/docs/getting-started.md) for help on setting it.
+
 ## Create a Document
 
 End-point that combines the process of uploading a file and indexing it with the given metadata. Accepts a multipart/form-data request that accepts two files:
@@ -39,7 +42,8 @@ Sample Request:
 
 ```bash
 curl --location --request POST 'https://{host}/documents/create' \
---form 'documentFile=@"/path/content-services-ui/123.pdf"' \
+--header 'x-audituser: mynetid' \
+--form 'documentFile=@"/path/123.pdf"' \
 --form 'metadataFile=@"/path/metadata-file.json"'
 ```
 
@@ -82,16 +86,20 @@ For large file uploads (upper limit TBD) see guide [Create Documents with Large 
 
 ## Update Metadata of a Document
 
-End-point that partially updates the metadata of given document.
+End-point to update the metadata values of a given document with the given updated values. 
+Metadata not provided in the call will retain its existing values. 
 
 `POST https://{host}/documents/update`
 
 Sample Request:
 
-*Dev Preview* Note that the category and documentType are required in beta. Release version will allow to omit the document type and category.
+> *Dev Preview*: Note that the category and documentType are required in beta. Release version will allow to omit the document type and category.
 
-```json
-{
+```bash
+curl --location --request POST 'https://{host}/documents/update' \
+--header 'x-audituser: mynetid' \
+--header 'Content-Type: application/json' \
+--data-raw '{
   "id": "00000001fcpd3gb784gsfk7rftg9d5bq",
   "category": "My Category",
   "documentType": "My Document Type",
@@ -99,7 +107,7 @@ Sample Request:
     "name": "My Field",
     "values": ["New Value"]
   }]
-}
+}'
 ```
 
 Sample Response:
@@ -120,7 +128,7 @@ Sample Response:
 
 ### Dates
 
-Dates are represented as milliseconds elapsed since January 1, 1970. For example:
+Dates are represented in Unix epoch time, i.e. in milliseconds elapsed since January 1, 1970. For example:
 
 ```json
 {

@@ -25,7 +25,7 @@ To `Reindex` a document is the act of updating the values of one or more metadat
 
 ## Document Attributes
 
-In addition to metadata values, indexed `Documents` also have `Document Attributes`. These are common pieces of information stored for all `Documents` regardless of the `Document Type` is assigned to. Examples of document attributes are:
+In addition to metadata values, indexed `Documents` also have `Document Attributes`. These are common pieces of information stored for all `Documents` regardless of the `Document Type` assigned to it. Examples of document attributes are:
 
 - "id"
 - "displayName"
