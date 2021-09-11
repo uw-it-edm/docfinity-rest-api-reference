@@ -49,7 +49,7 @@ End-point that executes a template search with the given prompt values.
 
 Sample Request:
 
-Note that the prompt names are the same as displayed in the search UI.
+Note that the prompt names are the same as displayed in the search UI. The `attributeName` is an optional parameter in the search criteria.
 
 ```bash
 curl --location --request POST 'https://{host}/docfinity/webservices/rest/document/search/template/execute' \
@@ -61,6 +61,7 @@ curl --location --request POST 'https://{host}/docfinity/webservices/rest/docume
   "maxNum": 50,
   "criteria": [
     {
+      "searchPromptId": "00000001ff6bvv08nz73nedpabqk69wz",
       "attributeName": "Search Prompt 1",
       "strValue": "My Search Value"
     }
