@@ -4,7 +4,7 @@
 
 REST API is available in two environments, `Test` and `Prod` (resource URL's to be defined).
 
-An early Dev access is available at `https://api.dev.concert.uw.edu/documents/` for testing and proof of concept.
+An early Dev access is available at `https://api.dev.concert.uw.edu/documents/v1` for testing and proof of concept.
 
 ## Authentication
 
