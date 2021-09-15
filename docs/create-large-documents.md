@@ -35,12 +35,12 @@ The document id string is returned in the response body. Use this id for subsequ
 
 End-point that indexes and commits a previously uploaded document.
 
-`POST https://{host}/documents/commit`
+`POST https://{host}/documents/v1/commit`
 
 Sample Request:
 
 ```bash
-curl --location --request POST 'https://{host}/documents/commit' \
+curl --location --request POST 'https://{host}/documents/v1/commit' \
 --header 'x-audituser: mynetid' \
 --header 'Content-Type: application/json' \
 --data-raw '{

@@ -4,9 +4,9 @@
 
 To work around the limitations of DocFinity's core API, EDM team has developed custom end-points to create and update documents. *Note: url paths may change.*
 
-- `https://{host}/documents/create`. End-point that combines the process of uploading a file and indexing it with the given metadata.
-- `https://{host}/documents/update`. End-point that updates the metadata values of a given document with the given updated values.
-- `https://{host}/documents/commit`. Alternate end-point to index a new document, intended for large files where client uploads the document separately.
+- `https://{host}/documents/v1/create`. End-point that combines the process of uploading a file and indexing it with the given metadata.
+- `https://{host}/documents/v1/update`. End-point that updates the metadata values of a given document with the given updated values.
+- `https://{host}/documents/v1/commit`. Alternate end-point to index a new document, intended for large files where client uploads the document separately.
 
 Source code of custom end-points: [Document-API](https://github.com/uw-it-edm/document-api).
 
@@ -36,12 +36,12 @@ End-point that combines the process of uploading a file and indexing it with the
 - documentFile: File to upload.
 - metadataFile: File with JSON representation of the Document-API request model (see above) to index the document.
 
-`POST https://{host}/documents/create`
+`POST https://{host}/documents/v1/create`
 
 Sample Request:
 
 ```bash
-curl --location --request POST 'https://{host}/documents/create' \
+curl --location --request POST 'https://{host}/documents/v1/create' \
 --header 'x-audituser: mynetid' \
 --form 'documentFile=@"/path/123.pdf"' \
 --form 'metadataFile=@"/path/metadata-file.json"'
@@ -89,14 +89,14 @@ For large file uploads (upper limit TBD) see guide [Create Documents with Large 
 End-point to update the metadata values of a given document with the given updated values. 
 Metadata not provided in the call will retain its existing values. 
 
-`POST https://{host}/documents/update`
+`POST https://{host}/documents/v1/update`
 
 Sample Request:
 
 > *Dev Preview*: Note that the category and documentType are required in beta. Release version will allow to omit the document type and category.
 
 ```bash
-curl --location --request POST 'https://{host}/documents/update' \
+curl --location --request POST 'https://{host}/documents/v1/update' \
 --header 'x-audituser: mynetid' \
 --header 'Content-Type: application/json' \
 --data-raw '{
