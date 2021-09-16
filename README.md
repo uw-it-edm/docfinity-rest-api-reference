@@ -10,3 +10,4 @@ Table of contents
    1. [Get and Replace Document File](/docs/get-and-replace-file.md)
    1. [Search for Documents](/docs/document-search.md)
    1. [Create Documents with Large Files](/docs/create-large-documents.md)
+1. [Interactive Jupyter Notebook](/playground/rest-api.ipynb)
