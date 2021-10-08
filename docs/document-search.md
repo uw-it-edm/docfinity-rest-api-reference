@@ -41,6 +41,57 @@ Sample Response:
 ]
 ```
 
+## Get Search Template Prompts
+
+End-point that returns all configured prompts for a given search template. This is available to inspect the configuration of all prompts for a search. 
+
+Note that client can store the prompt's id as it will not change after the search template has been created by admin.
+
+`GET https://{host}/docfinity/webservices/rest/document/search/prompts/{searchId}/EXECUTION`
+
+Sample Request:
+```bash
+curl --location --request GET 'https://{host}/docfinity/webservices/rest/document/search/prompts/00000001f8bgj6vs6zb7tg3vqaawqpay/EXECUTION' \
+--header 'x-audituser: mynetid' 
+```
+
+Sample Response:
+
+```json
+[
+  {
+    "allowMultipleValues": false,
+    "id": "00000001f8bgj6x8qjatn5rdsy2vze1c",
+    "name": "Employee Group",
+    "dataType": "STRING",
+    "datasourceId": "00000001f8beq96hb9a7cgv0fv078eb1",
+    "label": "Employee Group",
+    "inputType": "LIST",
+    "data": [
+      {
+        "value": "Academic",
+        "key": ""
+      },
+      {
+        "value": "Staff",
+        "key": " "
+      }
+    ],
+    "maxLength": 50,
+    "strDefaultValue": "Academic",
+    "responsibilityMapping": [],
+    "defaultValueType": "NONE",
+    "staticDefaultValue": "Academic",
+    "attributeType": "METADATA",
+    "attributeName": "Employee Group",
+    "required": false,
+    "hidden": false,
+    "editable": false
+  }
+]
+```
+
+
 ## Execute Search
 
 End-point that executes a template search with the given prompt values.
@@ -48,8 +99,6 @@ End-point that executes a template search with the given prompt values.
 `POST https://{host}/docfinity/webservices/rest/document/search/template/execute`
 
 Sample Request:
-
-Note that the prompt names are the same as displayed in the search UI.
 
 ```bash
 curl --location --request POST 'https://{host}/docfinity/webservices/rest/document/search/template/execute' \
@@ -61,7 +110,7 @@ curl --location --request POST 'https://{host}/docfinity/webservices/rest/docume
   "maxNum": 50,
   "criteria": [
     {
-      "attributeName": "Search Prompt 1",
+      "searchPromptId": "00000001f8bgj6x8qjatn5rdsy2vze1c",
       "strValue": "My Search Value"
     }
   ],
@@ -155,52 +204,4 @@ Note that each document entry has its main attribute information as well as the 
   "totalPages": 2,
   "pageNum": 1
 }
-```
-
-## (Optional) Get Search Template Prompts
-
-End-point that returns all configured prompts for a given search template. This is available to inspect the configuration of all prompts for a search.
-
-`GET https://{host}/docfinity/webservices/rest/document/search/prompts/{searchId}/EXECUTION`
-
-Sample Request:
-```bash
-curl --location --request GET 'https://{host}/docfinity/webservices/rest/document/search/prompts/00000001f8bgj6vs6zb7tg3vqaawqpay/EXECUTION' \
---header 'x-audituser: mynetid' 
-```
-
-Sample Response:
-
-```json
-[
-  {
-    "allowMultipleValues": false,
-    "id": "00000001f8bgj6x8qjatn5rdsy2vze1c",
-    "name": "Employee Group",
-    "dataType": "STRING",
-    "datasourceId": "00000001f8beq96hb9a7cgv0fv078eb1",
-    "label": "Employee Group",
-    "inputType": "LIST",
-    "data": [
-      {
-        "value": "Academic",
-        "key": ""
-      },
-      {
-        "value": "Staff",
-        "key": " "
-      }
-    ],
-    "maxLength": 50,
-    "strDefaultValue": "Academic",
-    "responsibilityMapping": [],
-    "defaultValueType": "NONE",
-    "staticDefaultValue": "Academic",
-    "attributeType": "METADATA",
-    "attributeName": "Employee Group",
-    "required": false,
-    "hidden": false,
-    "editable": false
-  }
-]
 ```
