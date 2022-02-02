@@ -67,23 +67,3 @@ Sample Response:
   }]
 }
 ```
-
-## 3. Delete File (optional)
-
-If there is an error during indexing and the file is not needed anymore, a request can be made to this end-point to delete the file from the server.
-You will need the appropriate Delete permissions on your account to successfully run this api. 
-
-`POST https://{host}/docfinity/webservices/rest/document/delete`
-
-Sample Request:
-```bash
-curl --location --request POST 'https://{host}/docfinity/webservices/rest/document/delete' \
---header 'x-audituser: mynetid' \
---header 'Content-Type: application/json' \
---data-raw '["00000001fcpd3gb784gsfk7rftg9d5bq"]'
-```
-The body of the request is an array of strings with the document identifier(s)
-
-Response: </br>
-A response code of `204 No Content` indicates the document(s) have been deleted successfully. 
-There is no content in the return body. 
