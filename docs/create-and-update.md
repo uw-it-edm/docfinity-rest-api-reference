@@ -140,6 +140,9 @@ Dates are represented in Unix epoch time, i.e. in milliseconds elapsed since Jan
 }
 ```
 
+**Please Note** that DocFinity does not support persisting DateTime values in Date MDOs. They will be rounded to 
+`1650040682000` will be truncated to `1650049200000`
+
 ### Numbers
 
 Integers and decimals are represented as javascript numbers. For example:
