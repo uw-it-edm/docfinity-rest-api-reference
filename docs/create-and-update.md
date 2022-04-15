@@ -140,6 +140,8 @@ Dates are represented in Unix epoch time, i.e. in milliseconds elapsed since Jan
 }
 ```
 
+**Please Note** that DocFinity will truncate DateTime values to persist only the Date. For example: the value `1650040682000` will be truncated to `1650049200000`.
+
 ### Numbers
 
 Integers and decimals are represented as javascript numbers. For example:
