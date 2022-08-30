@@ -29,11 +29,11 @@ Model used by request and responses `/create` and `/update` end-points:
 > **_NOTE:_** For brevity, all sample requests on this page excluded setting the authentication options.
 > Please see [Getting Started](/docs/getting-started.md) for help on setting it.
 
-## Create a Document
+## Create a Document (< 10MB)
 
 End-point that combines the process of uploading a file and indexing it with the given metadata. Accepts a multipart/form-data request that accepts two files:
 
-- documentFile: File to upload.
+- documentFile: File to upload. (Maximum file size: **10MB**)
 - metadataFile: File with JSON representation of the Document-API request model (see above) to index the document.
 
 `POST https://{host}/documents/v1/create`
@@ -80,9 +80,9 @@ Sample Response:
 }
 ```
 
-## Create Document with Large File
+## Create Document with Large File (> 10MB)
 
-For large file uploads (>10 MB) see guide [Create Documents with Large Files](/docs/create-large-documents.md)
+For large file uploads (> 10MB) see guide [Create Documents with Large Files](/docs/create-large-documents.md)
 
 ## Update Metadata of a Document
 
