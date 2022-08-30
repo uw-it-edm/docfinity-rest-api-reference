@@ -82,7 +82,7 @@ Sample Response:
 
 ## Create Document with Large File
 
-For large file uploads (upper limit TBD) see guide [Create Documents with Large Files](/docs/create-large-documents.md)
+For large file uploads (>10 MB) see guide [Create Documents with Large Files](/docs/create-large-documents.md)
 
 ## Update Metadata of a Document
 
