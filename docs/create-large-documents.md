@@ -1,6 +1,6 @@
 # Create Documents with Large Files
 
-For files larger than XXMB (limit TBD) the recommended approach is to upload the file directly into DocFinity and then use a custom EDM end-point to index it. The complete process is below:
+For files larger than 10MB (limit to be revised) the recommended approach is to upload the file directly into DocFinity and then use a custom EDM end-point to index it. The complete process is below:
 
 > **_NOTE:_** For brevity, all sample requests on this page excluded setting the authentication options.
 > Please see [Getting Started](/docs/getting-started.md) for help on setting it.
