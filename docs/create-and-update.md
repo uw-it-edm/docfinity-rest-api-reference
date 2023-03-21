@@ -86,14 +86,14 @@ For large file uploads (> 10MB) see guide [Create Documents with Large Files](/d
 
 ## Update Metadata of a Document
 
-End-point to update the metadata values of a given document with the given updated values. 
-Metadata not provided in the call will retain its existing values. 
+End-point to update the metadata values of a given document with the given updated values.
+Metadata not provided in the call will retain its existing values.
 
 `POST https://{host}/documents/v1/update`
 
-Sample Request:
+> *Note*: Reindexing to a different category / document type is not currently supported.
 
-> *Dev Preview*: Note that the category and documentType are required in beta. Release version will allow to omit the document type and category.
+Sample Request:
 
 ```bash
 curl --location --request POST 'https://{host}/documents/v1/update' \
@@ -101,8 +101,6 @@ curl --location --request POST 'https://{host}/documents/v1/update' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "id": "00000001fcpd3gb784gsfk7rftg9d5bq",
-  "category": "My Category",
-  "documentType": "My Document Type",
   "metadata": [{
     "name": "My Field",
     "values": ["New Value"]
