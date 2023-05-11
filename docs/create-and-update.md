@@ -5,7 +5,7 @@ Table of contents
 1. [Custom EDM End-Points](#custom-edm-end-points)
 1. [Request and Response Model](#request-and-response-model)
 1. [Create a Document](#create-a-document)
-1. [Create a Document For Testing (< 10MB)](#create-a-document-for-testing-%28%3C%2010MB%29)
+1. [Create a Document For Testing (< 10MB)](#create-a-document-for-testing)
 1. [Update Metadata of a Document](#update-metadata-of-a-document)
 1. [Metadata Types](#metadata-types)
 1. [Clearing Metadata](#clearing-metadata)
@@ -108,7 +108,7 @@ Sample Response:
 }
 ```
 
-## Create a Document For Testing (< 10MB)
+## Create a Document For Testing
 
 For testing purposes, this end-point combines the process of uploading a file and indexing it with the given metadata. Accepts a multipart/form-data request that accepts two files:
 
