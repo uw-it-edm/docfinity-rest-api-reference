@@ -12,7 +12,7 @@ Table of contents
 
 ## Custom EDM End-Points
 
-To work around the limitations of DocFinity's core API, EDM team has developed custom end-points to create and update documents. *Note: url paths may change.*
+To work around the limitations of DocFinity's core API, EDM team has developed custom end-points to create and update documents.
 
 - `https://{host}/documents/v1/commit`. End-point that indexes a file that has already been uploaded to DocFinity with the given metadata.
 - `https://{host}/documents/v1/update`. End-point that updates the metadata of a document with the given values.
