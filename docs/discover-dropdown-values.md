@@ -106,7 +106,7 @@ Sample Request:
 
 ```bash
 curl --location 'https://{host}/docfinity/webservices/rest/document/datasource/00000001fzebrne5rvtasqd794vde48x/execute' \
---header 'X-XSRF-TOKEN: netid' \
+--header 'x-audituser: mynetid' \
 --header 'Content-Type: application/json' \
 --data '[
     {
